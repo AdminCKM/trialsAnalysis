@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const limpiarBtn = document.getElementById("limpiar-btn");
     const descargarBtn = document.getElementById("descargar-btn");
     // Crear el nombre del archivo con el formato requerido
-    const fileName = `trials_${nombreIFA}_${indicacion}.xlsx`
+    const fileName = `trials_${nombreIFA}_${indicacion}.xlsx`;
 
     let data = []; // Variable para almacenar los datos del archivo CSV
 

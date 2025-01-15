@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const dataTableBody = document.querySelector("#data-table tbody");
     const limpiarBtn = document.getElementById("limpiar-btn");
     const descargarBtn = document.getElementById("descargar-btn");
+    // Crear el nombre del archivo con el formato requerido
+    const fileName = `trials_${nombreIFA}_${indicacion}.xlsx`
 
     let data = []; // Variable para almacenar los datos del archivo CSV
 
@@ -185,8 +187,13 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Función para descargar la tabla como archivo XLS
     descargarBtn.addEventListener("click", function () {
-    const wb = XLSX.utils.table_to_book(dataTableBody, {sheet: "Datos"}); // Convertir la tabla a libro Excel
-    XLSX.writeFile(wb, "datos_tabla.xlsx"); // Descargar el archivo como .xlsx
-    });
+        if (dataTableBody.rows.length > 0) {
+            console.log("Generando el archivo Excel...");
+            const wb = XLSX.utils.table_to_book(dataTableBody, {sheet: "Datos"});
+            XLSX.writeFile(wb, "datos_tabla.xlsx");
+        } else {
+            alert("No hay datos para descargar.");
+        }
+    });    
 });
 

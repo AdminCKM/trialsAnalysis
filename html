@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla con Botones de Análisis y Carga de Archivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sección para ingresar los valores -->
+    <label for="nombre-ifa">Nombre IFA:</label>
+    <input type="text" id="nombre-ifa" placeholder="Ingresa el nombre IFA">
+    
+    <label for="indicacion">Indicacion:</label>
+    <input type="text" id="indicacion" placeholder="Ingresa la indicación">
+
+    <input type="file" id="file-input" accept=".csv">
+    
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>PMID</th>
+                <th>TI</th>
+                <th>AU</th>
+                <th>YYYY</th>
+                <th>MMM</th>
+                <th>AB</th>
+                <th>JT</th>
+                <th>PT</th>
+                <th>DP</th>
+                <th>DOI</th>
+                <th>URL</th>
+                <th>Revisar</th>
+                <th>Inclusión</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las filas se agregarán dinámicamente aquí -->
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

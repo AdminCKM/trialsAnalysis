@@ -14,6 +14,10 @@
     <label for="indicacion">Indicacion:</label>
     <input type="text" id="indicacion" placeholder="Ingresa la indicación">
 
+    <!-- Botones -->
+    <button id="limpiar-btn">Limpiar</button>
+    <button id="descargar-btn">Descargar XLS</button>
+
     <input type="file" id="file-input" accept=".csv">
     
     <table id="data-table">
@@ -34,7 +38,7 @@
                 <th>Inclusión</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="data-table-body">
             <!-- Las filas se agregarán dinámicamente aquí -->
         </tbody>
     </table>

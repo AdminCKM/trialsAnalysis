@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const fileInput = document.getElementById("file-input");
     const dataTableBody = document.querySelector("#data-table tbody");
+    const limpiarBtn = document.getElementById("limpiar-btn");
+    const descargarBtn = document.getElementById("descargar-btn");
 
     let data = []; // Variable para almacenar los datos del archivo CSV
 
@@ -173,5 +175,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const inclusionCell = dataTableBody.rows[rowIndex].cells[dataTableBody.rows[rowIndex].cells.length - 1];
         inclusionCell.textContent = status.charAt(0).toUpperCase() + status.slice(1); // Capitalizar la primera letra
     };
+
+    // Función para limpiar la tabla
+    limpiarBtn.addEventListener("click", function () {
+    dataTableBody.innerHTML = ""; // Limpiar la tabla
+    data = []; // Vaciar los datos
+    console.log("Tabla limpiada.");
+    });
+    
+    // Función para descargar la tabla como archivo XLS
+    descargarBtn.addEventListener("click", function () {
+    const wb = XLSX.utils.table_to_book(dataTableBody, {sheet: "Datos"}); // Convertir la tabla a libro Excel
+    XLSX.writeFile(wb, "datos_tabla.xlsx"); // Descargar el archivo como .xlsx
+    });
 });
 
